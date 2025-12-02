@@ -1,0 +1,335 @@
+version: '3.8'
+
+services:
+  app_tuning:
+    build: .
+    image: app_tuning:compiler-tuner
+    container_name: app_tuning_container
+    depends_on:
+      - ${COMPILER_HOST}
+    environment:
+      COMPILER_HOST: ${COMPILER_HOST}
+      TUNING_METHOD: ${TUNING_METHOD}
+      FIDELITY_TYPE: ${FIDELITY_TYPE}
+      SYSTEM: ${SYSTEM}
+      RUN: ${RUN}
+      PYTHONUNBUFFERED: 1
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - ./logs:/app/logs     # map logs from local to container
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 4g
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+    privileged: true
+    command: python -u auto_runner.py
+    networks:
+      - gcc-net
+      - clang-net
+
+
+  clang_bestconfig:
+    image: clang-csmith:latest
+    container_name: clang_bestconfig_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - clang-net
+
+  clang_smac:
+    image: clang-csmith:latest
+    container_name: clang_smac_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - clang-net
+
+  clang_flash:
+    image: clang-csmith:latest
+    container_name: clang_flash_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - clang-net
+
+
+  clang_gamf:
+    image: clang-csmith:latest
+    container_name: clang_gamf_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - clang-net
+
+  clang_gasf:
+    image: clang-csmith:latest
+    container_name: clang_gasf_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - clang-net
+
+  clang_hyperband:
+    image: clang-csmith:latest
+    container_name: clang_hyperband_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - clang-net
+
+  clang_sampler:
+    image: clang-csmith:latest
+    container_name: clang_sampler_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - clang-net
+
+  clang_hebo:
+    image: clang-csmith:latest
+    container_name: clang_hebo_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - clang-net
+
+  clang_bohb:
+    image: clang-csmith:latest
+    container_name: clang_bohb_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - clang-net
+
+  clang_dehb:
+    image: clang-csmith:latest
+    container_name: clang_dehb_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - clang-net
+
+  clang_promise:
+    image: clang-csmith:latest
+    container_name: clang_promise_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - clang-net
+
+  clang_priorband:
+    image: clang-csmith:latest
+    container_name: clang_priorband_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - clang-net
+
+
+  gcc_bestconfig:
+    image: gcc-csmith:latest
+    container_name: gcc_bestconfig_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - gcc-net
+
+  gcc_promise:
+    image: gcc-csmith:latest
+    container_name: gcc_promise_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - gcc-net
+
+  gcc_smac:
+    image: gcc-csmith:latest
+    container_name: gcc_smac_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - gcc-net
+
+  gcc_flash:
+    image: gcc-csmith:latest
+    container_name: gcc_flash_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - gcc-net
+
+
+  gcc_gamf:
+    image: gcc-csmith:latest
+    container_name: gcc_gamf_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - gcc-net
+
+  gcc_gasf:
+    image: gcc-csmith:latest
+    container_name: gcc_gasf_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - gcc-net
+
+  gcc_hyperband:
+    image: gcc-csmith:latest
+    container_name: gcc_hyperband_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - gcc-net
+
+  gcc_sampler:
+    image: gcc-csmith:latest
+    container_name: gcc_sampler_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - gcc-net
+
+  gcc_hebo:
+    image: gcc-csmith:latest
+    container_name: gcc_hebo_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - gcc-net
+
+  gcc_bohb:
+    image: gcc-csmith:latest
+    container_name: gcc_bohb_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - gcc-net
+
+  gcc_dehb:
+    image: gcc-csmith:latest
+    container_name: gcc_dehb_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - gcc-net
+
+  gcc_priorband:
+    image: gcc-csmith:latest
+    container_name: gcc_priorband_container
+    command: tail -f /dev/null
+    deploy:
+        resources:
+          limits:
+            cpus: '1'
+            memory: 4g
+    networks:
+      - gcc-net
+
+networks:
+  gcc-net:
+    driver: bridge
+  clang-net:
+    driver: bridge

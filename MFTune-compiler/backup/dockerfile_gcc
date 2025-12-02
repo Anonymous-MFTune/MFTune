@@ -1,0 +1,22 @@
+FROM gcc:latest
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    cmake \
+    make \
+    cloc \
+    wget \
+    automake \
+    autoconf \
+    libtool \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN git clone https://github.com/csmith-project/csmith.git && \
+    cd csmith && cmake . && make && make install && \
+    cd .. && rm -rf csmith
+
+ENV CSMITH_PATH=/usr/local/include/csmith
+ENV C_INCLUDE_PATH=/usr/local/include
+
+WORKDIR /app
+#CMD ["tail", "-f", "/dev/null"]

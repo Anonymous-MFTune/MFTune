@@ -1,0 +1,21 @@
+ffast-math,funroll-all-loops,fno-inline-small-functions,finline-functions,fno-math-errno,fipa-cp-clone,funsafe-math-optimizations,fno-tree-loop-optimize,fno-merge-constants,fno-omit-frame-pointer,fno-align-labels,fno-tree-dse,fwrapv,fgcse-after-reload,fno-align-jumps,fno-asynchronous-unwind-tables,fno-cse-follow-jumps,fno-ivopts,fno-guess-branch-probability,fprefetch-loop-arrays,run_time,evaluated_time,fidelity_setting,corr
+Off,Off,Off,Off,Off,Off,Off,Off,On,Off,On,Off,On,On,Off,On,Off,On,Off,Off,0.06348586082458496,42.86532998085022,"[10, 50, 6, 4, 50]",1
+On,Off,On,Off,Off,Off,On,On,Off,Off,On,On,On,Off,Off,Off,Off,On,Off,Off,0.06879901885986328,42.945565700531006,"[10, 50, 6, 4, 50]",1
+Off,Off,On,Off,Off,Off,On,Off,Off,On,On,Off,On,On,On,On,Off,Off,On,Off,0.07684063911437988,42.752408027648926,"[10, 50, 6, 4, 50]",1
+On,Off,Off,On,Off,Off,Off,On,Off,Off,Off,On,Off,Off,On,On,Off,On,On,On,0.07932114601135254,42.84956932067871,"[10, 50, 6, 4, 50]",1
+Off,On,On,On,On,Off,Off,Off,On,On,On,On,Off,Off,On,Off,Off,On,Off,On,0.08124518394470215,42.79893350601196,"[10, 50, 6, 4, 50]",1
+Off,Off,On,Off,Off,On,On,On,On,Off,Off,On,On,On,On,Off,On,Off,On,Off,0.08233070373535156,42.745633125305176,"[10, 50, 6, 4, 50]",1
+On,Off,On,Off,Off,Off,Off,Off,On,On,On,On,On,On,On,On,Off,Off,Off,Off,0.08307337760925293,42.91325569152832,"[10, 50, 6, 4, 50]",1
+On,Off,On,Off,Off,Off,On,Off,Off,On,On,Off,On,On,On,On,Off,Off,On,On,0.08347320556640625,42.72201609611511,"[10, 50, 6, 4, 50]",1
+Off,Off,On,On,Off,Off,Off,Off,On,On,On,On,Off,On,On,Off,Off,On,Off,Off,0.08376336097717285,42.96051001548767,"[10, 50, 6, 4, 50]",1
+Off,Off,On,Off,Off,Off,Off,Off,On,Off,On,On,On,On,Off,On,Off,On,Off,Off,0.08387279510498047,42.84031844139099,"[10, 50, 6, 4, 50]",1
+Off,On,On,Off,Off,Off,On,Off,On,On,On,Off,On,On,On,On,Off,Off,On,Off,0.08475136756896973,42.83731150627136,"[10, 50, 6, 4, 50]",1
+Off,Off,On,Off,Off,On,On,Off,On,Off,Off,On,On,On,On,On,Off,Off,Off,Off,0.08574366569519043,42.794758796691895,"[10, 50, 6, 4, 50]",1
+Off,Off,On,Off,Off,Off,Off,Off,On,Off,On,Off,On,On,Off,On,Off,On,Off,Off,0.0860586166381836,42.702609062194824,"[10, 50, 6, 4, 50]",1
+On,Off,On,Off,Off,Off,On,On,Off,Off,On,Off,On,Off,On,Off,Off,Off,Off,Off,0.08843851089477539,42.86707615852356,"[10, 50, 6, 4, 50]",1
+On,Off,On,Off,Off,Off,On,Off,Off,On,On,Off,On,On,Off,Off,Off,Off,On,Off,0.08844757080078125,43.01543688774109,"[10, 50, 6, 4, 50]",1
+On,On,On,Off,Off,Off,On,Off,On,On,On,Off,On,On,Off,Off,Off,Off,On,Off,0.08854985237121582,42.878071546554565,"[10, 50, 6, 4, 50]",1
+Off,Off,On,Off,Off,On,On,Off,On,On,On,On,On,On,On,On,Off,Off,Off,Off,0.08867788314819336,42.951130628585815,"[10, 50, 6, 4, 50]",1
+Off,Off,On,Off,Off,On,On,Off,On,Off,On,On,On,On,On,On,Off,Off,Off,Off,0.08910799026489258,42.82812166213989,"[10, 50, 6, 4, 50]",1
+Off,Off,On,Off,Off,Off,On,Off,Off,On,On,Off,On,On,Off,Off,Off,Off,On,On,0.08940935134887695,42.95554828643799,"[10, 50, 6, 4, 50]",1
+On,Off,On,Off,On,On,Off,Off,On,On,On,On,On,Off,Off,Off,On,Off,On,On,0.08942198753356934,42.87507510185242,"[10, 50, 6, 4, 50]",1

@@ -1,0 +1,6 @@
+Factor Name,Is Cost Related
+time,Y
+tables,Y
+table-size,Y
+threads,Y
+r_ratio,N

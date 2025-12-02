@@ -1,0 +1,25 @@
+FROM silkeh/clang:17
+
+# 安装必要的依赖
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git cmake make cloc wget automake autoconf libtool g++ \
+    && rm -rf /var/lib/apt/lists/*
+
+# 克隆官方 Csmith 仓库
+RUN git clone https://github.com/csmith-project/csmith.git
+
+# 应用补丁以解决与 Clang 的兼容性问题
+RUN sed -i 's/((FilterKind) (fDFS + 1))/((int)(fDFS + 1))/' csmith/src/Filter.h \
+    && sed -i 's/return MAX_FILTER_KIND_SIZE;/return (FilterKind)MAX_FILTER_KIND_SIZE;/' csmith/src/Filter.cpp
+
+# 构建并安装 Csmith
+RUN cd csmith && \
+    cmake -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ . && \
+    make -j$(nproc) && make install && \
+    cd .. && rm -rf csmith
+
+# 设置环境变量
+ENV CSMITH_PATH=/usr/local/include/csmith
+ENV C_INCLUDE_PATH=/usr/local/include
+
+WORKDIR /app

@@ -1,0 +1,131 @@
+{
+  "inline-function-prob": {
+    "default": 10,
+    "cost_related": "Yes",
+    "type": "enum",
+    "enum_values": [50, 60, 70, 80, 90]
+  },
+  "max-array-len-per-dim": {
+    "default": 50,
+    "type": "enum",
+    "cost_related": "Yes",
+    "enum_values": [5, 10, 15, 20, 25, 35]
+  },
+  "max-block-depth": {
+    "default": 6,
+    "type": "enum",
+    "cost_related": "Yes",
+    "enum_values": [1, 2, 3]
+  },
+  "max-block-size": {
+    "default": 4,
+    "cost_related": "Yes",
+    "type": "enum",
+    "enum_values": [1, 2, 3, 4]
+  },
+  "max-funcs": {
+    "default": 50,
+    "cost_related": "Yes",
+    "type": "enum",
+    "enum_values": [5, 10, 15, 20, 25, 35]
+  },
+  "int128": {
+    "default": true,
+    "cost_related": "Yes",
+    "type": "enum",
+    "enum_values": [
+        true,
+        false
+    ]
+  },
+  "unions": {
+    "default": true,
+    "cost_related": "Yes",
+    "type": "enum",
+    "enum_values": [
+        true,
+        false
+    ]
+  },
+  "structs": {
+    "default": true,
+    "cost_related": "Yes",
+    "type": "enum",
+    "enum_values": [
+        true,
+        false
+    ]
+  },
+  "return-structs": {
+    "default": true,
+    "cost_related": "Yes",
+    "type": "enum",
+    "enum_values": [
+        true,
+        false
+    ]
+  },
+  "uint8": {
+    "default": true,
+    "cost_related": "Yes",
+    "type": "enum",
+    "enum_values": [
+        true,
+        false
+    ]
+  },
+  "return-unions": {
+    "default": true,
+    "cost_related": "Yes",
+    "type": "enum",
+    "enum_values": [
+        true,
+        false
+    ]
+  },
+  "no-signed-char-index": {
+    "default": true,
+    "cost_related": "Yes",
+    "type": "enum",
+    "enum_values": [
+        true,
+        false
+    ]
+  },
+  "identify-wrappers": {
+    "default": true,
+    "cost_related": "Yes",
+    "type": "enum",
+    "enum_values": [
+        true,
+        false
+    ]
+  },
+  "no-hash-value-printf": {
+    "default": true,
+    "cost_related": "Yes",
+    "type": "enum",
+    "enum_values": [
+        true,
+        false
+    ]
+  },
+  "bitfields": {
+    "default": true,
+    "cost_related": "Yes",
+    "type": "enum",
+    "enum_values": [
+        true,
+        false
+    ]
+  },
+  "fresh-array-ctrl-var-names": {
+    "default": true,
+    "cost_related": "Yes",
+    "type": "enum",
+    "enum_values": [
+        true,
+        false
+    ]
+  }
+}

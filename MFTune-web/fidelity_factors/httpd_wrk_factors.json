@@ -1,0 +1,26 @@
+{
+  "threads": {
+    "default": 8,
+    "type": "enum",
+    "cost_related": "No",
+    "enum_values": [1, 2, 4, 6, 8, 10]
+  },
+  "connections": {
+    "default": 50,
+    "type": "enum",
+    "cost_related": "Yes",
+    "enum_values": [10, 15, 20, 25, 30, 35, 40, 45, 50]
+  },
+  "duration": {
+    "default": 180,
+    "type": "enum",
+    "cost_related": "Yes",
+    "enum_values": [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60]
+  },
+  "post": {
+    "default": true,
+    "type": "enum",
+    "cost_related": "No",
+    "enum_values": [true, false]
+  }
+}

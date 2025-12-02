@@ -1,0 +1,282 @@
+{
+    "ffast-math": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "funroll-all-loops": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-inline-small-functions": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "finline-functions": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-math-errno": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fipa-cp-clone": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "funsafe-math-optimizations": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-tree-loop-optimize": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-merge-constants": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-omit-frame-pointer": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-align-labels": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-tree-dse": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fwrapv": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fgcse-after-reload": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-align-jumps": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-asynchronous-unwind-tables": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-cse-follow-jumps": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-ivopts": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-guess-branch-probability": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fprefetch-loop-arrays": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-tree-coalesce-vars": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-common": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-cprop-registers": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-early-inlining": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-delete-null-pointer-checks": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-gcse": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-inline-functions-called-once": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "funswitch-loops": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-tree-vrp": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-jump-tables": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "ftree-vectorize": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-argument-alias": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-schedule-insns": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-branch-count-reg": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-tree-switch-conversion": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-auto-inc-dec": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-crossjumping": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-tree-fre": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-tree-reassoc": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-align-functions": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "-fno-defer-pop": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-optimize-register-move": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-strict-aliasing": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-rerun-cse-after-loop": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-tree-ccp": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-ipa-cp": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-if-conversion2": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-tree-sra": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-expensive-optimizations": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-tree-copyrename": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-ipa-reference": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-ipa-pure-const": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-thread-jumps": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-if-conversion": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "fno-reorder-blocks": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    },
+    "falign-loops": {
+        "default": "Off",
+        "enum_values": ["On", "Off"],
+        "type": "enum"
+    }
+}

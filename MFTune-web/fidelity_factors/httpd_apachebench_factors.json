@@ -1,0 +1,27 @@
+{
+  "requests": {
+      "default": 100000000,
+      "type": "enum",
+      "cost_related": "Yes",
+      "enum_values": [1000, 500, 300, 100, 70, 50, 30, 10]
+    },
+    "concurrency": {
+      "default": 5,
+      "type": "enum",
+      "cost_related": "Yes",
+      "enum_values": [300, 100, 70, 50, 30, 10]
+    },
+    "timelimit": {
+      "default": 180,
+      "type": "enum",
+      "cost_related": "Yes",
+      "enum_values": [30, 60, 90, 120, 150, 180]
+    },
+    "post": {
+      "default": true,
+      "type": "enum",
+      "cost_related": "Yes",
+      "enum_values": [true, false]
+    }
+}
+  

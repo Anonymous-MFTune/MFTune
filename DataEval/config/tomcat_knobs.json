@@ -1,0 +1,270 @@
+{
+    "maxThreads": {
+        "default": 200,
+        "min": 1,
+        "max": 20000,
+        "type": "integer"
+    },
+    "acceptCount": {
+        "default": 100,
+        "min": 0,
+        "max": 1000,
+        "type": "integer"
+    },
+    "connectionTimeout": {
+        "default": 20000,
+        "min": 1,
+        "max": 60000,
+        "type": "integer"
+    },
+    "keepAliveTimeout": {
+        "default": 20000,
+        "min": 1,
+        "max": 60000,
+        "type": "integer"
+    },
+    "maxConnections": {
+        "default": 8192,
+        "min": 1,
+        "max": 100000,
+        "type": "integer"
+    },
+    "minSpareThreads": {
+        "default": 10,
+        "min": 1,
+        "max": 500,
+        "type": "integer"
+    },
+    "processorCache": {
+        "default": 200,
+        "min": 0,
+        "max": 500,
+        "type": "integer"
+    },
+    "enableLookups": {
+        "default": "false",
+        "enum_values": [
+            "true",
+            "false"
+        ],
+        "type": "enum"
+    },
+    "asyncTimeout": {
+        "default": 30000,
+        "min": 0,
+        "max": 60000,
+        "type": "integer"
+    },
+    "disableUploadTimeout": {
+        "default": "true",
+        "enum_values": [
+            "true",
+            "false"
+        ],
+        "type": "enum"
+    },
+    "connectionUploadTimeout": {
+        "default": 300000,
+        "min": 0,
+        "max": 600000,
+        "type": "integer"
+    },
+    "executorTerminationTimeoutMillis": {
+        "default": 5000,
+        "min": 0,
+        "max": 60000,
+        "type": "integer"
+    },
+    "compressionMinSize": {
+        "default": 2048,
+        "min": 0,
+        "max": 100000,
+        "type": "integer"
+    },
+    "tcpNoDelay": {
+        "default": "true",
+        "enum_values": [
+            "true",
+            "false"
+        ],
+        "type": "enum"
+    },
+    "maxHttpHeaderSize": {
+        "default": 8192,
+        "min": 0,
+        "max": 65536,
+        "type": "integer"
+    },
+    "maxHttpRequestHeaderSize": {
+        "default": 8192,
+        "min": 0,
+        "max": 65536,
+        "type": "integer"
+    },
+    "maxHttpResponseHeaderSize": {
+        "default": 8192,
+        "min": 0,
+        "max": 65536,
+        "type": "integer"
+    },
+    "maxKeepAliveRequests": {
+        "default": 100,
+        "min": 1,
+        "max": 1000,
+        "type": "integer"
+    },
+    "threadsMaxIdleTime": {
+        "default": 60000,
+        "min": 0,
+        "max": 600000,
+        "type": "integer"
+    },
+    "threadPriority": {
+        "default": 5,
+        "min": 1,
+        "max": 10,
+        "type": "integer"
+    },
+    "acceptorThreadPriority": {
+        "default": 5,
+        "min": 1,
+        "max": 10,
+        "type": "integer"
+    },
+    "maxQueueSize": {
+        "default": 2147483647,
+        "min": 0,
+        "max": 2147483647,
+        "type": "integer"
+    },
+    "connectionLinger": {
+        "default": -1,
+        "min": -1,
+        "max": 100,
+        "type": "integer"
+    },
+    "useAsyncIO": {
+        "default": "true",
+        "enum_values": [
+            "true",
+            "false"
+        ],
+        "type": "enum"
+    },
+    "allowBackslash": {
+        "default": "false",
+        "enum_values": [
+            "true",
+            "false"
+        ],
+        "type": "enum"
+    },
+    "allowTrace": {
+        "default": "false",
+        "enum_values": [
+            "true",
+            "false"
+        ],
+        "type": "enum"
+    },
+    "discardFacades": {
+        "default": "false",
+        "enum_values": [
+            "true",
+            "false"
+        ],
+        "type": "enum"
+    },
+    "enforceEncodingInGetWriter": {
+        "default": "false",
+        "enum_values": [
+            "true",
+            "false"
+        ],
+        "type": "enum"
+    },
+    "maxCookieCount": {
+        "default": 200,
+        "min": 1,
+        "max": 200,
+        "type": "integer"
+    },
+    "maxParameterCount": {
+        "default": 10000,
+        "min": 1,
+        "max": 10000,
+        "type": "integer"
+    },
+    "maxPostSize": {
+        "default": 2097152,
+        "min": 0,
+        "max": 209715200,
+        "type": "integer"
+    },
+    "maxSavePostSize": {
+        "default": 4096,
+        "min": 0,
+        "max": 1048576,
+        "type": "integer"
+    },
+    "proxyPort": {
+        "default": 0,
+        "min": 0,
+        "max": 65535,
+        "type": "integer"
+    },
+    "redirectPort": {
+        "default": 8443,
+        "min": 0,
+        "max": 65535,
+        "type": "integer"
+    },
+    "rejectSuspiciousURIs": {
+        "default": "false",
+        "enum_values": [
+            "true",
+            "false"
+        ],
+        "type": "enum"
+    },
+    "secure": {
+        "default": "false",
+        "enum_values": [
+            "true",
+            "false"
+        ],
+        "type": "enum"
+    },
+    "useBodyEncodingForURI": {
+        "default": "false",
+        "enum_values": [
+            "true",
+            "false"
+        ],
+        "type": "enum"
+    },
+    "useIPVHosts": {
+        "default": "false",
+        "enum_values": [
+            "true",
+            "false"
+        ],
+        "type": "enum"
+    },
+    "xpoweredBy": {
+        "default": "false",
+        "enum_values": [
+            "true",
+            "false"
+        ],
+        "type": "enum"
+    },
+    "allowHostHeaderMismatch": {
+        "default": "false",
+        "enum_values": [
+            "true",
+            "false"
+        ],
+        "type": "enum"
+    }
+}

@@ -1,0 +1,55 @@
+# Use python 3.9 as the base image
+FROM python:3.9-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Updating the package manager and installing the MySQL client and Sysbench
+RUN apt-get update && apt-get install -y \
+    docker.io \
+    docker-compose \
+    default-mysql-client \
+    r-base \
+    libssl-dev \
+    libffi-dev \
+    libxml2-dev \
+    sysbench
+
+# Install Java separately
+RUN apt-get update && \
+    apt-get install -y wget gnupg && \
+    wget -O /tmp/openjdk.tar.gz https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.18+10/OpenJDK11U-jre_x64_linux_hotspot_11.0.18_10.tar.gz && \
+    mkdir -p /opt/java/openjdk && \
+    tar -xf /tmp/openjdk.tar.gz -C /opt/java/openjdk --strip-components=1 && \
+    rm /tmp/openjdk.tar.gz
+
+ENV R_HOME=/usr/lib/R
+ENV RPY2_CFFI_MODE=ABI
+
+# Set JAVA_HOME environment variable for Java 11
+ENV JAVA_HOME /opt/java/openjdk
+ENV PATH $JAVA_HOME/bin:$PATH
+
+
+# install dependencies
+COPY requirements.txt .
+# RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the project files to the working directory; if add this, modified codes require rebuild docker to work
+COPY . /app/
+
+
+
+# Environmental parameter settings
+#ENV DB_HOST=db_mf2
+#ENV DB_USER=root
+#ENV DB_USER=postgres
+#ENV DB_PASSWORD=12345678
+#ENV DB_NAME=testdb
+
+# Expose the port
+EXPOSE 8000
+
+# Run python application
+# CMD ["python", "parallel_run.py"]

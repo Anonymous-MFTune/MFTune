@@ -1,0 +1,324 @@
+version: '3.8'
+
+services:
+  app_tuning:
+    build: .
+    image: app_tuning:web-tuner
+    container_name: app_tuning_container
+    user: root
+    depends_on:
+      - ${SERVER_HOST}
+    environment:
+      SERVER_HOST: ${SERVER_HOST}
+      TUNING_METHOD: ${TUNING_METHOD}
+      FIDELITY_TYPE: ${FIDELITY_TYPE}
+      SYSTEM: ${SYSTEM}
+      SERVER_PORT: ${SERVER_PORT}
+      RUN: ${RUN}
+      PYTHONUNBUFFERED: 1
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - ./logs:/app/logs     # map logs from local to container
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 4g
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+    privileged: true
+    command: python -u auto_runner.py
+    networks:
+      - tomcat-net
+      - httpd-net
+
+  tomcat_base:
+    image: b4347dd8ddde
+    container_name: tomcat-base
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 4g
+    environment:
+      - CATALINA_OPTS=-Xms512m -Xmx2g
+    command: catalina.sh run
+    restart: always
+    privileged: true
+    networks:
+      - tomcat-net
+
+  tomcatbestconfig:
+    extends:
+      service: tomcat_base
+    container_name: tomcatbestconfig_container
+    ports:
+      - "8081:8080"
+    volumes:
+      - tomcatbestconfig_data:/usr/local/tomcat/webapps
+
+
+  tomcatsmac:
+    extends:
+      service: tomcat_base
+    container_name: tomcatsmac_container
+    ports:
+      - "8082:8080"
+    volumes:
+      - tomcatsmac_data:/usr/local/tomcat/webapps
+
+  tomcatgamf:
+    extends:
+      service: tomcat_base
+    container_name: tomcatgamf_container
+    ports:
+      - "8083:8080"
+    volumes:
+      - tomcatgamf_data:/usr/local/tomcat/webapps
+
+  tomcatgasf:
+    extends:
+      service: tomcat_base
+    container_name: tomcatgasf_container
+    ports:
+      - "8084:8080"
+    volumes:
+      - tomcatgasf_data:/usr/local/tomcat/webapps
+
+  tomcatflash:
+    extends:
+      service: tomcat_base
+    container_name: tomcatflash_container
+    ports:
+      - "8085:8080"
+    volumes:
+      - tomcatflash_data:/usr/local/tomcat/webapps
+
+
+  tomcathyperband:
+    extends:
+      service: tomcat_base
+    container_name: tomcathyperband_container
+    ports:
+      - "8086:8080"
+    volumes:
+      - tomcathyperband_data:/usr/local/tomcat/webapps
+
+  tomcathebo:
+    extends:
+      service: tomcat_base
+    container_name: tomcathebo_container
+    ports:
+      - "8087:8080"
+    volumes:
+      - tomcathebo_data:/usr/local/tomcat/webapps
+
+  tomcatbohb:
+    extends:
+      service: tomcat_base
+    container_name: tomcatbohb_container
+    ports:
+      - "8088:8080"
+    volumes:
+      - tomcatbohb_data:/usr/local/tomcat/webapps
+
+  tomcatdehb:
+    extends:
+      service: tomcat_base
+    container_name: tomcatdehb_container
+    ports:
+      - "8089:8080"
+    volumes:
+      - tomcatdehb_data:/usr/local/tomcat/webapps
+
+
+  tomcatmfsampler:
+    extends:
+      service: tomcat_base
+    container_name: tomcatmfsampler_container
+    ports:
+      - "8090:8080"
+    volumes:
+      - tomcatmfsampler_data:/usr/local/tomcat/webapps
+
+  tomcatpromise:
+    extends:
+      service: tomcat_base
+    container_name: tomcatpromise_container
+    ports:
+      - "8091:8080"
+    volumes:
+      - tomcatpromise_data:/usr/local/tomcat/webapps
+
+  tomcatpriorband:
+    extends:
+      service: tomcat_base
+    container_name: tomcatpriorband_container
+    ports:
+      - "8092:8080"
+    volumes:
+      - tomcatpriorband_data:/usr/local/tomcat/webapps
+
+  httpd_base:
+    image: httpd-sampling:2.4.63
+    container_name: httpd_base
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 4g
+    environment:
+      - APACHE_HTTPD_OPTS=-DFOREGROUND
+    restart: always
+    networks:
+      - httpd-net
+
+
+  httpdbestconfig:
+    extends:
+      service: httpd_base
+    container_name: httpdbestconfig_container
+    ports:
+      - "9081:80"
+    volumes:
+      - httpdbestconfig_data:/usr/local/apache2/htdocs
+
+  httpdflash:
+    extends:
+      service: httpd_base
+    container_name: httpdflash_container
+    ports:
+      - "9082:80"
+    volumes:
+      - httpdflash_data:/usr/local/apache2/htdocs
+
+  httpdsmac:
+    extends:
+      service: httpd_base
+    container_name: httpdsmac_container
+    ports:
+      - "9083:80"
+    volumes:
+      - httpdsmac_data:/usr/local/apache2/htdocs
+
+  httpdgamf:
+    extends:
+      service: httpd_base
+    container_name: httpdgamf_container
+    ports:
+      - "9084:80"
+    volumes:
+      - httpdgamf_data:/usr/local/apache2/htdocs
+
+  httpdgasf:
+    extends:
+      service: httpd_base
+    container_name: httpdgasf_container
+    ports:
+      - "9085:80"
+    volumes:
+      - httpdgasf_data:/usr/local/apache2/htdocs
+
+  httpdhyperband:
+    extends:
+      service: httpd_base
+    container_name: httpdhyperband_container
+    ports:
+      - "9086:80"
+    volumes:
+      - httpdhyperband_data:/usr/local/apache2/htdocs
+
+
+
+  httpdmfsampler:
+    extends:
+      service: httpd_base
+    container_name: httpdmfsampler_container
+    ports:
+      - "9087:80"
+    volumes:
+      - httpdmfsampler_data:/usr/local/apache2/htdocs
+
+  httpdhebo:
+    extends:
+      service: httpd_base
+    container_name: httpdhebo_container
+    ports:
+      - "9088:80"
+    volumes:
+      - httpdhebo_data:/usr/local/apache2/htdocs
+
+  httpdbohb:
+    extends:
+      service: httpd_base
+    container_name: httpdbohb_container
+    ports:
+      - "9089:80"
+    volumes:
+      - httpdbohb_data:/usr/local/apache2/htdocs
+
+  httpddehb:
+    extends:
+      service: httpd_base
+    container_name: httpddehb_container
+    ports:
+      - "9090:80"
+    volumes:
+      - httpddehb_data:/usr/local/apache2/htdocs
+
+  httpdpromise:
+    extends:
+      service: httpd_base
+    container_name: httpdpromise_container
+    ports:
+      - "9091:80"
+    volumes:
+      - httpdpromise_data:/usr/local/apache2/htdocs
+
+  httpdpriorband:
+    extends:
+      service: httpd_base
+    container_name: httpdpriorband_container
+    ports:
+      - "9092:80"
+    volumes:
+      - httpdpriorband_data:/usr/local/apache2/htdocs
+
+networks:
+  tomcat-net:
+    driver: bridge
+  httpd-net:
+    driver: bridge
+
+volumes:
+  tomcatbestconfig_data:
+  tomcatsmac_data:
+  tomcatgamf_data:
+  tomcatgasf_data:
+  tomcatflash_data:
+  tomcathyperband_data:
+  tomcatmfsampler_data:
+  tomcathebo_data:
+  tomcatbohb_data:
+  tomcatdehb_data:
+  tomcatpromise_data:
+  tomcatpriorband_data:
+
+  httpdbestconfig_data:
+  httpdsmac_data:
+  httpdgamf_data:
+  httpdgasf_data:
+  httpdflash_data:
+  httpdhyperband_data:
+  httpdmfsampler_data:
+  httpdhebo_data:
+  httpdbohb_data:
+  httpddehb_data:
+  httpdpromise_data:
+  httpdpriorband_data:

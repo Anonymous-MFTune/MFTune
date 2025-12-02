@@ -1,0 +1,177 @@
+version: '3.8'
+
+services:
+
+  tomcat_base:
+    image: b4347dd8ddde
+    container_name: tomcat-base
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 4g
+    environment:
+      - CATALINA_OPTS=-Xms512m -Xmx2g
+    command: catalina.sh run
+    restart: always
+    privileged: true
+    networks:
+      - tomcat-net
+
+  tomcat_bestconfig:
+    extends:
+      service: tomcat_base
+    container_name: tomcat_bestconfig_container
+    ports:
+      - "8081:8080"
+    volumes:
+      - tomcat_bestconfig_data:/usr/local/tomcat/webapps
+
+
+  tomcat_smac:
+    extends:
+      service: tomcat_base
+    container_name: tomcat_smac_container
+    ports:
+      - "8082:8080"
+    volumes:
+      - tomcat_smac_data:/usr/local/tomcat/webapps
+
+  tomcat_ga_mf:
+    extends:
+      service: tomcat_base
+    container_name: tomcat_ga_mf_container
+    ports:
+      - "8083:8080"
+    volumes:
+      - tomcat_ga_mf_data:/usr/local/tomcat/webapps
+
+  tomcat_ga_sf:
+    extends:
+      service: tomcat_base
+    container_name: tomcat_ga_sf_container
+    ports:
+      - "8084:8080"
+    volumes:
+      - tomcat_bestconfig_data:/usr/local/tomcat/webapps
+
+  tomcat_flash:
+    extends:
+      service: tomcat_base
+    container_name: tomcat_flash_container
+    ports:
+      - "8085:8080"
+    volumes:
+      - tomcat_flash_data:/usr/local/tomcat/webapps
+
+
+  tomcat_hyperband:
+    extends:
+      service: tomcat_base
+    container_name: tomcat_hyperband_container
+    ports:
+      - "8086:8080"
+    volumes:
+      - tomcat_hyperband_data:/usr/local/tomcat/webapps
+
+  tomcat_mf_sampler:
+    extends:
+      service: tomcat_base
+    container_name: tomcat_mf_sampler_container
+    ports:
+      - "8087:8080"
+    volumes:
+      - tomcat_mf_sampler_data:/usr/local/tomcat/webapps
+
+
+
+  httpd_base:
+    image: httpd-sampling:2.4.63
+    container_name: httpd_base
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 4g
+    environment:
+      - APACHE_HTTPD_OPTS=-DFOREGROUND
+    restart: always
+    networks:
+      - httpd-net
+
+
+  httpd_bestconfig:
+    extends:
+      service: httpd_base
+    container_name: httpd_bestconfig_container
+    ports:
+      - "9081:80"
+    volumes:
+      - httpd_bestconfig_data:/usr/local/apache2/htdocs
+
+  httpd_flash:
+    extends:
+      service: httpd_base
+    container_name: httpd_flash_container
+    ports:
+      - "9082:80"
+    volumes:
+      - httpd_flash_data:/usr/local/apache2/htdocs
+
+  httpd_smac:
+    extends:
+      service: httpd_base
+    container_name: httpd_smac_container
+    ports:
+      - "9083:80"
+    volumes:
+      - httpd_smac_data:/usr/local/apache2/htdocs
+
+  httpd_ga_mf:
+    extends:
+      service: httpd_base
+    container_name: httpd_ga_mf_container
+    ports:
+      - "9084:80"
+    volumes:
+      - httpd_ga_mf_data:/usr/local/apache2/htdocs
+
+  httpd_ga_sf:
+    extends:
+      service: httpd_base
+    container_name: httpd_ga_sf_container
+    ports:
+      - "9085:80"
+    volumes:
+      - httpd_ga_sf_data:/usr/local/apache2/htdocs
+
+  httpd_hyperband:
+    extends:
+      service: httpd_base
+    container_name: httpd_hyperband_container
+    ports:
+      - "9086:80"
+    volumes:
+      - httpd_hyperband_data:/usr/local/apache2/htdocs
+
+networks:
+  tomcat-net:
+    driver: bridge
+  httpd-net:
+    driver: bridge
+
+volumes:
+  tomcat_bestconfig_data:
+  tomcat_smac_data:
+  tomcat_ga_mf_data:
+  tomcat_ga_sf_data:
+  tomcat_flash_data:
+  tomcat_hyperband_data:
+  tomcat_mf_sampler_data:
+
+  httpd_bestconfig_data:
+  httpd_smac_data:
+  httpd_ga_mf_data:
+  httpd_ga_sf_data:
+  httpd_flash_data:
+  httpd_hyperband_data:

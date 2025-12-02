@@ -1,0 +1,737 @@
+version: '3.8'
+
+services:
+  app_tuning:
+    build: .
+    image: app_tuning:db-tuner
+    container_name: app_tuning_container
+    depends_on:
+      - ${DB_HOST}
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_USER: root
+      DB_PASSWORD: 12345678
+      DB_NAME: testdb
+      TUNING_METHOD: ${TUNING_METHOD}
+      FIDELITY_TYPE: ${FIDELITY_TYPE}
+      SYSTEM: ${SYSTEM}
+      RUN: ${RUN}
+      PYTHONUNBUFFERED: 1
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - ./logs:/app/logs     # map logs from local to container
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+    privileged: true
+    command: python auto_runner.py
+
+  mysql_ga_mf:
+    image: mysql:5.7.19
+    container_name: mysql_ga_mf_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_ga_mf_data:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  mysql_ga_sf:
+    image: mysql:5.7.19
+    container_name: mysql_ga_sf_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql_ga_sf_data:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  mysql_flash:
+    image: mysql:5.7.19
+    container_name: mysql_flash_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3309:3306"
+    volumes:
+      - mysql_flash_data:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  mysql_bestconfig:
+    image: mysql:5.7.19
+    container_name: mysql_bestconfig_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3310:3306"
+    volumes:
+      - mysql_bestconfig_data:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  mysql_smac:
+    image: mysql:5.7.19
+    container_name: mysql_smac_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3311:3306"
+    volumes:
+      - mysql_smac_data:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  mysql_hyperband:
+    image: mysql:5.7.19
+    container_name: mysql_hyperband_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3312:3306"
+    volumes:
+      - mysql_hb_data:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  mysql_bohb:
+    image: mysql:5.7.19
+    container_name: mysql_bohb_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3313:3306"
+    volumes:
+      - mysql_bohb_data:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  mysql_dehb:
+    image: mysql:5.7.19
+    container_name: mysql_dehb_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3314:3306"
+    volumes:
+      - mysql_dehb_data:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  mysql_hebo:
+    image: mysql:5.7.19
+    container_name: mysql_hebo_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3315:3306"
+    volumes:
+      - mysql_hebo_data:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  mysql_mf_sampler:
+    image: mysql:5.7.19
+    container_name: mysql_mf_sampler_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3316:3306"
+    volumes:
+      - mysql_mf_sampler_data:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  mysql_mf_analyser:
+    image: mysql:5.7.19
+    container_name: mysql_mf_analyser_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3317:3306"
+    volumes:
+      - mysql_mf_analyser_data:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  mysql_mf_flash:
+    image: mysql:5.7.19
+    container_name: mysql_mf_flash_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3318:3306"
+    volumes:
+      - mysql_mf_flash_data:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  mysql_bayes_mf:
+    image: mysql:5.7.19
+    container_name: mysql_bayes_mf_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3319:3306"
+    volumes:
+      - mysql_bayes_mf_data:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  mysql_bayes_sf:
+    image: mysql:5.7.19
+    container_name: mysql_bayes_sf_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3320:3306"
+    volumes:
+      - mysql_bayes_sf_data:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  mysql_promise:
+    image: mysql:5.7.19
+    container_name: mysql_promise_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3321:3306"
+    volumes:
+      - mysql_promise_data:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  mysql_priorband:
+    image: mysql:5.7.19
+    container_name: mysql_priorband_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3322:3306"
+    volumes:
+      - mysql_priorband_data:/var/lib/mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+
+  postgres_ga_mf:
+    image: postgres:12.7
+    container_name: postgres_ga_mf_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: testdb
+    ports:
+      - "5433:5432"
+    volumes:
+      - pg_ga_mf_data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    cpuset: "0-7"
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  postgres_ga_sf:
+    image: postgres:12.7
+    container_name: postgres_ga_sf_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: testdb
+    ports:
+      - "5434:5432"
+    volumes:
+      - pg_ga_sf_data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    cpuset: "0-7"
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  postgres_flash:
+    image: postgres:12.7
+    container_name: postgres_flash_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: testdb
+    ports:
+      - "5435:5432"
+    volumes:
+      - pg_flash_data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    cpuset: "0-7"
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  postgres_bestconfig:
+    image: postgres:12.7
+    container_name: postgres_bestconfig_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: testdb
+    ports:
+      - "5436:5432"
+    volumes:
+      - pg_bestconfig_data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    cpuset: "0-7"
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  postgres_smac:
+    image: postgres:12.7
+    container_name: postgres_smac_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: testdb
+    ports:
+      - "5437:5432"
+    volumes:
+      - pg_smac_data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    cpuset: "0-7"
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  postgres_hyperband:
+    image: postgres:12.7
+    container_name: postgres_hyperband_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: testdb
+    ports:
+      - "5438:5432"
+    volumes:
+      - pg_hb_data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    cpuset: "0-7"
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  postgres_bohb:
+    image: postgres:12.7
+    container_name: postgres_bohb_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: testdb
+    ports:
+      - "5439:5432"
+    volumes:
+      - pg_bohb_data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    cpuset: "0-7"
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  postgres_dehb:
+    image: postgres:12.7
+    container_name: postgres_dehb_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: testdb
+    ports:
+      - "5440:5432"
+    volumes:
+      - pg_dehb_data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    cpuset: "0-7"
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  postgres_hebo:
+    image: postgres:12.7
+    container_name: postgres_hebo_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: testdb
+    ports:
+      - "5441:5432"
+    volumes:
+      - pg_hebo_data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    cpuset: "0-7"
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+
+  postgres_mf_sampler:
+    image: postgres:12.7
+    container_name: postgres_mf_sampler_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: testdb
+    ports:
+      - "5442:5432"
+    volumes:
+      - pg_mf_sampler_data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    cpuset: "0-7"
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  postgres_mf_analyser:
+    image: postgres:12.7
+    container_name: postgres_mf_analyser_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: testdb
+    ports:
+      - "5443:5432"
+    volumes:
+      - pg_mf_analyser_data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    cpuset: "0-7"
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  postgres_promise:
+    image: postgres:12.7
+    container_name: postgres_promise_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: testdb
+    ports:
+      - "5444:5432"
+    volumes:
+      - pg_promise_data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    cpuset: "0-7"
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+  postgres_priorband:
+    image: postgres:12.7
+    container_name: postgres_priorband_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: testdb
+    ports:
+      - "5445:5432"
+    volumes:
+      - pg_priorband_data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 32g
+    cpuset: "0-7"
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "30"
+
+volumes:
+  mysql_ga_mf_data:
+  mysql_ga_sf_data:
+  mysql_flash_data:
+  mysql_bestconfig_data:
+  mysql_smac_data:
+  mysql_hb_data:
+  mysql_bohb_data:
+  mysql_dehb_data:
+  mysql_hebo_data:
+  mysql_promise_data:
+  mysql_priorband_data:
+
+
+  pg_ga_mf_data:
+  pg_ga_sf_data:
+  pg_flash_data:
+  pg_bestconfig_data:
+  pg_smac_data:
+  pg_hb_data:
+  pg_bohb_data:
+  pg_dehb_data:
+  pg_hebo_data:
+  pg_promise_data:
+  pg_priorband_data:
+
+  mysql_mf_sampler_data:
+  pg_mf_sampler_data:
+  mysql_mf_analyser_data:
+  pg_mf_analyser_data:
+  mysql_mf_flash_data:
+  mysql_bayes_sf_data:
+  mysql_bayes_mf_data:

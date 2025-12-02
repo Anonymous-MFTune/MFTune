@@ -1,0 +1,28 @@
+# Use python 3.9 as the base image
+FROM python:3.9-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Updating the package manager and installing the MySQL client and Sysbench
+RUN apt-get update && apt-get install -y \
+    docker.io \
+    r-base \
+    libssl-dev \
+    libffi-dev \
+    libxml2-dev \
+    docker-compose
+
+
+# install dependencies
+COPY requirements.txt .
+# RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the project files to the working directory; if add this, modified codes require rebuild docker to work
+COPY . /app/
+
+
+# Expose the port
+EXPOSE 8000
+

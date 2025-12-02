@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Server port="8005" shutdown="SHUTDOWN">
+  <Listener className="org.apache.catalina.startup.VersionLoggerListener" />
+  
+  
+  <Listener className="org.apache.catalina.core.AprLifecycleListener" />
+  
+  
+  
+  <Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener" />
+  <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
+  <Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener" />
+
+  
+  <GlobalNamingResources>
+    
+    <Resource name="UserDatabase" auth="Container" type="org.apache.catalina.UserDatabase" description="User database that can be updated and saved" factory="org.apache.catalina.users.MemoryUserDatabaseFactory" pathname="conf/tomcat-users.xml" />
+  </GlobalNamingResources>
+
+  
+  <Service name="Catalina">
+
+    
+    
+
+
+    
+    <Connector port="8080" protocol="HTTP/1.1" connectionTimeout="41467" redirectPort="8443" maxParameterCount="1000" maxThreads="18831" acceptCount="310" keepAliveTimeout="16608" maxConnections="2282" minSpareThreads="52" processorCache="117" enableLookups="false" asyncTimeout="845" disableUploadTimeout="true" connectionUploadTimeout="184637" executorTerminationTimeoutMillis="42283" compressionMinSize="57547" tcpNoDelay="false" maxHttpHeaderSize="14895" maxHttpRequestHeaderSize="45532" maxHttpResponseHeaderSize="4222" maxKeepAliveRequests="578" threadsMaxIdleTime="356786" threadPriority="1" />
+    
+    
+    
+    
+
+    
+    
+
+    
+
+    
+    <Engine name="Catalina" defaultHost="localhost">
+
+      
+      
+
+      
+      <Realm className="org.apache.catalina.realm.LockOutRealm">
+        
+        <Realm className="org.apache.catalina.realm.UserDatabaseRealm" resourceName="UserDatabase" />
+      </Realm>
+
+      <Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="true">
+
+        
+        
+
+        
+        <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" prefix="localhost_access_log" suffix=".txt" pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+	<Context path="" docBase="myroot" debug="0" reloadable="true" />
+      </Host>
+    </Engine>
+  </Service>
+</Server>

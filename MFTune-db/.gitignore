@@ -1,0 +1,102 @@
+# ----------------------
+# Python bytecode/cache
+# ----------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ----------------------
+# Virtual environment
+# ----------------------
+.venv/
+venv/
+ENV/
+env/
+
+# ----------------------
+# Jupyter Notebook checkpoints
+# ----------------------
+.ipynb_checkpoints/
+
+# ----------------------
+# Logs and local runtime files
+# ----------------------
+*.log
+logs/
+*.sqlite3
+*.pid
+*.db
+
+# ----------------------
+# Environment/config files
+# ----------------------
+.env
+.env.*
+*.secret
+*.token
+
+# ----------------------
+# System-specific files
+# ----------------------
+.DS_Store
+Thumbs.db
+
+# ----------------------
+# PyCharm project files
+# ----------------------
+.idea/
+
+# ----------------------
+# VS Code settings (if used)
+# ----------------------
+.vscode/
+
+# ----------------------
+# Build output / packaging
+# ----------------------
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ----------------------
+# Compiled C/C++/Cython
+# ----------------------
+*.so
+*.dll
+*.dylib
+*.pyd
+*.c
+*.cpp
+*.ipynb
+
+# ----------------------
+# Test/coverage output
+# ----------------------
+.coverage
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+
+# ----------------------
+# Docker
+# ----------------------
+*.tar
+*.img
+*.bak
+__docker_cache__/
+
+# ----------------------
+# Others
+# ----------------------
+*.bak
+*.swp
+
+
+# R temporary files
+.RData
+.Rhistory
+.Rproj.user/
+.Ruserdata
+.Rapp.history

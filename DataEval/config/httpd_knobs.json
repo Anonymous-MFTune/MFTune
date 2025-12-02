@@ -1,0 +1,295 @@
+{
+  "TimeOut": {
+    "default": 60,
+    "max": 600,
+    "min": 1,
+    "type": "integer"
+  },
+  "KeepAlive": {
+    "default": "On",
+    "enum_values": [
+      "Off",
+      "On"
+    ],
+    "type": "enum"
+  },
+  "KeepAliveTimeout": {
+    "default": 5,
+    "max": 60,
+    "min": 1,
+    "type": "integer"
+  },
+  "MaxKeepAliveRequests": {
+    "default": 100,
+    "max": 10000,
+    "min": 1,
+    "type": "integer"
+  },
+  "EnableSendfile": {
+    "default": "Off",
+    "enum_values": [
+      "On",
+      "Off"
+    ],
+    "type": "enum"
+  },
+  "EnableMMAP": {
+    "default": "On",
+    "enum_values": [
+      "On",
+      "Off"
+    ],
+    "type": "enum"
+  },
+  "HostnameLookups": {
+    "default": "Off",
+    "enum_values": [
+      "Off",
+      "On",
+      "Double"
+    ],
+    "type": "enum"
+  },
+  "LimitRequestBody": {
+    "default": 1073741824,
+    "max": 2147483647,
+    "min": 0,
+    "type": "integer"
+  },
+  "LimitRequestFields": {
+    "default": 100,
+    "max": 10000,
+    "min": 1,
+    "type": "integer"
+  },
+  "LimitRequestFieldSize": {
+    "default": 8190,
+    "max": 8190,
+    "min": 0,
+    "type": "integer"
+  },
+  "LimitRequestLine": {
+    "default": 8190,
+    "max": 8190,
+    "min": 1,
+    "type": "integer"
+  },
+  "ReadBufferSize": {
+    "default": 8192,
+    "max": 65536,
+    "min": 1024,
+    "type": "integer"
+  },
+  "FlushMaxPipelined": {
+    "default": 5,
+    "max": 1000,
+    "min": -1,
+    "type": "integer"
+  },
+  "FlushMaxThreshold": {
+    "default": 65535,
+    "max": 1048576,
+    "min": 0,
+    "type": "integer"
+  },
+  "RLimitCPU": {
+    "default": 50000,
+    "max": 100000,
+    "min": 0,
+    "type": "integer"
+  },
+  "RLimitMEM": {
+    "default": 536870912,
+    "max": 1073741824,
+    "min": 0,
+    "type": "integer"
+  },
+  "RLimitNPROC": {
+    "default": 512,
+    "max": 1024,
+    "min": 0,
+    "type": "integer"
+  },
+  "MaxRanges": {
+    "default": "200",
+    "enum_values": [
+      "default",
+      "unlimited",
+      "none",
+      "100",
+      "200",
+      "300",
+      "500",
+      "1000"
+    ],
+    "type": "enum"
+  },
+  "MaxRangeOverlaps": {
+    "default": "20",
+    "enum_values": [
+      "default",
+      "unlimited",
+      "none",
+      "100",
+      "200",
+      "300",
+      "500",
+      "1000"
+    ],
+    "type": "enum"
+  },
+  "MaxRangeReversals": {
+    "default": "20",
+    "enum_values": [
+      "default",
+      "unlimited",
+      "none",
+      "100",
+      "200",
+      "300",
+      "500",
+      "1000"
+    ],
+    "type": "enum"
+  },
+  "LimitXMLRequestBody": {
+    "default": 1000000,
+    "max": 134217728,
+    "min": 0,
+    "type": "integer"
+  },
+  "ExtendedStatus": {
+    "default": "Off",
+    "enum_values": [
+      "On",
+      "Off"
+    ],
+    "type": "enum"
+  },
+  "ProtocolsHonorOrder": {
+    "default": "On",
+    "enum_values": [
+      "On",
+      "Off"
+    ],
+    "type": "enum"
+  },
+  "UseCanonicalName": {
+    "default": "Off",
+    "enum_values": [
+      "On",
+      "Off",
+      "DNS"
+    ],
+    "type": "enum"
+  },
+  "UseCanonicalPhysicalPort": {
+    "default": "Off",
+    "enum_values": [
+      "On",
+      "Off"
+    ],
+    "type": "enum"
+  },
+  "AddDefaultCharset": {
+    "default": "Off",
+    "enum_values": [
+      "On",
+      "Off",
+      "charset"
+    ],
+    "type": "enum"
+  },
+  "ServerTokens": {
+    "default": "Full",
+    "enum_values": [
+      "Full",
+      "Prod"
+    ],
+    "type": "enum"
+  },
+  "ServerSignature": {
+    "default": "Off",
+    "enum_values": [
+      "On",
+      "Off",
+      "EMail"
+    ],
+    "type": "enum"
+  },
+  "TraceEnable": {
+    "default": "on",
+    "enum_values": [
+      "on",
+      "off",
+      "extended"
+    ],
+    "type": "enum"
+  },
+  "ScriptInterpreterSource": {
+    "default": "Script",
+    "enum_values": [
+      "Script",
+      "Registry-Strict"
+    ],
+    "type": "enum"
+  },
+  "QualifyRedirectURL": {
+    "default": "Off",
+    "enum_values": [
+      "On",
+      "Off"
+    ],
+    "type": "enum"
+  },
+  "ContentDigest": {
+    "default": "Off",
+    "enum_values": [
+      "On",
+      "Off"
+    ],
+    "type": "enum"
+  },
+  "ForceType": {
+    "default": "unset",
+    "enum_values": [
+      "unset",
+      "media-type",
+      "None"
+    ],
+    "type": "enum"
+  },
+  "AcceptPathInfo": {
+    "default": "Off",
+    "enum_values": [
+      "On",
+      "Off"
+    ],
+    "type": "enum"
+  },
+  "AllowEncodedSlashes": {
+    "default": "Off",
+    "enum_values": [
+      "On",
+      "Off",
+      "NoDecode"
+    ],
+    "type": "enum"
+  },
+  "MergeSlashes": {
+    "default": "ON",
+    "enum_values": [
+      "ON",
+      "OFF"
+    ],
+    "type": "enum"
+  },
+  "DefaultType": {
+    "default": "none",
+    "enum_values": [
+      "none",
+      "media-type"
+    ],
+    "type": "enum"
+  }
+}

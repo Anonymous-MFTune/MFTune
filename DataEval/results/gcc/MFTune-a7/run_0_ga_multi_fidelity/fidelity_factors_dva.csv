@@ -1,0 +1,6 @@
+Factor Name,Is Cost Related
+inline-function-prob,Y
+max-array-len-per-dim,Y
+max-block-depth,Y
+max-block-size,Y
+max-funcs,Y

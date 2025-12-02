@@ -1,0 +1,291 @@
+{
+    "fstrict-aliasing": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "funroll-loops": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fno-exceptions": {
+        "default": "On",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fomit-frame-pointer": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fno-rtti": {
+        "default": "On",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fdata-sections": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "ffunction-sections": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fmerge-all-constants": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "finline-functions": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "finline-small-functions": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fno-math-errno": {
+        "default": "On",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fno-rounding-math": {
+        "default": "On",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fno-trapping-math": {
+        "default": "On",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fassociative-math": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "freciprocal-math": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fno-signed-zeros": {
+        "default": "On",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+
+    "fno-zero-initialized-in-bss": {
+        "default": "On",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fvectorize": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fslp-vectorize": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "ftree-vectorize": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fstrict-enums": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "ffast-math": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "funsafe-math-optimizations": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fexpensive-optimizations": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fmerge-constants": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fno-common": {
+        "default": "On",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fno-inline": {
+        "default": "On",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fno-inline-functions": {
+        "default": "On",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fno-threadsafe-statics": {
+        "default": "On",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "falign-functions": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "falign-jumps": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "falign-labels": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "falign-loops": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fgcse": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fgcse-after-reload": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    },
+    "fivopts": {
+        "default": "Off",
+        "enum_values": [
+            "On",
+            "Off"
+        ],
+        "type": "enum"
+    }
+}

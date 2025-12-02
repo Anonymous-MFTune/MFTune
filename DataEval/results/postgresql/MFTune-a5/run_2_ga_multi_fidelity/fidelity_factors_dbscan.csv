@@ -1,0 +1,2 @@
+time,tables,table-size,threads,r_ratio,corr,cost,cluster_label
+55,30,50000,6,0.5,0.6848484848484848,78.19085457324982,0
