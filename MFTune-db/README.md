@@ -76,6 +76,20 @@ tmux new -s mftune
 
 # Running MySQL Tuning
 
+First of all, you need to download the following images before running:
+
+
+- MySQL: [Zenodo-mysql](https://zenodo.org/records/17802608)
+
+- PostgreSQL: [Zenodo-postgresql](https://zenodo.org/records/17802608)
+
+Then, load the image locally by:
+
+```bash
+docker load -i mysql.tar
+docker load -i postgresql.tar
+```
+
 Inside tmux:
 
 ```bash
@@ -92,6 +106,8 @@ This script will:
 ---
 
 ## 🔎 Note About Image Build Options
+
+
 
 Inside `run_mysql.sh`, you will find:
 
@@ -114,20 +130,14 @@ Uses the included `dockerfile` to set up Python, Sysbench, OLTPBench.
 docker-compose up -d app_tuning mysql
 ```
 
-If you use Option B, you need to download the following images before running:
+The pre-built image can be accessed via:
 
-```
-image for tuning logic: 
-image for mysql:
-image for postgresql:
-```
+- app_tuning: [Zenodo-app_tuning](https://zenodo.org/records/17802608)
 
 Then, load the image locally by:
 
 ```bash
 docker load -i app_tuning.tar
-docker load -i mysql.tar
-docker load -i postgresql.tar
 ```
 
 ---
