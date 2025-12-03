@@ -1,8 +1,8 @@
 #!/bin/bash
 
-declare -a methods=("ga")
-declare -a services=("mysql_ga_mf")
-declare -a fidelity_types=("multi_fidelity" )
+declare -a methods=("ga" "ga" "flash" "smac" "bestconfig" "hebo" "promise" "hyperband" "priorband" "bohb" "dehb")
+declare -a services=("mysql_ga_mf" "mysql_ga_sf" "mysql_flash" "mysql_smac" "mysql_bestconfig" "mysql_hebo" "mysql_promise" "mysql_hyperband" "mysql_priorband" "mysql_bohb" "mysql_dehb")
+declare -a fidelity_types=("multi_fidelity" "single_fidelity" "single_fidelity" "single_fidelity" "single_fidelity" "single_fidelity" "single_fidelity" "multi_fidelity" "multi_fidelity" "multi_fidelity" "multi_fidelity")
 
 SYSTEM="mysql"
 
@@ -14,7 +14,7 @@ for i in "${!methods[@]}"; do
   db_service="${services[$i]}"
   fidelity="${fidelity_types[$i]}"
 
-  for run in {0..2}; do
+  for run in {0..9}; do
     run_log="logs/run${run}_${method}_${db_service}_container.log"
 
     echo "========= RUN ${run} START | METHOD: $method ========="

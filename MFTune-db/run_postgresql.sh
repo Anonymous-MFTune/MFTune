@@ -18,7 +18,7 @@ for i in "${!methods[@]}"; do
   db_service="${services[$i]}"
   fidelity="${fidelity_types[$i]}"
 
-  for run in {0..2}; do
+  for run in {0..9}; do
     echo "========= RUN ${run} START | METHOD: ${method} ========="
     run_log="logs/run${run}_${method}_${db_service}_container.log"
 

@@ -211,7 +211,7 @@ def main():
 
     algorithms = ['hyperband', 'bohb', 'dehb', 'priorband', 'smac', 'bestconfig', 'flash', 'ga', 'hebo', 'promise', 'MFTune-a5']
     # algorithms = ['MFTune-1', 'MFTune-3', 'MFTune-5', 'MFTune-7', 'MFTune-9']
-    algorithms = ['flash', 'ga', 'smac', 'hebo', 'bestconfig',]
+    # algorithms = ['flash', 'ga', 'smac', 'hebo', 'bestconfig',]
 
 
 
