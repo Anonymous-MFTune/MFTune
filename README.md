@@ -11,8 +11,8 @@ This repository contains the full implementation of MFTune, a multi-fidelity con
 | PostgreSQL    | Database   | Throughput (tps)   | 
 | Tomcat        | Web server | Throughput (rps)   |
 | HTTPD         | Web server | Throughput (rps)   | 
-| GCC           | Compiler   | Runtime (s)        | 
-| Clang         | Compiler   | Runtime (s)        | 
+| GCC           | Compiler   | Runtime (ms)        | 
+| Clang         | Compiler   | Runtime (ms)        | 
 
 ## Compared Tuning Algorithms
 
