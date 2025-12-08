@@ -198,8 +198,8 @@ class FLASHTuner:
                 start = time.time()
                 try:
                     print(f"Execute workload: {factors}")
-                    # latency, throughput, prepare_time, run_time, clean_time = self.workload_controller.run_workload(factors)
-                    latency, throughput, prepare_time, run_time, clean_time = self.run_mock_workload(factors)
+                    latency, throughput, prepare_time, run_time, clean_time = self.workload_controller.run_workload(factors)
+                    # latency, throughput, prepare_time, run_time, clean_time = self.run_mock_workload(factors)
                 except Exception as e:
                     print(f"Workload execution failed: {e}")
                     latency = throughput = prepare_time = run_time = clean_time = 0
