@@ -244,23 +244,18 @@ class FLASHTuner:
 
     def run_mock_workload(self, factors):
         """
-        模拟运行 workload。
-        factors: 通常是配置参数的 dict 或 list，这里不实际使用。
-        返回：latency, throughput, prepare_time, run_time, clean_time
+        mock workload。
         """
-        # 模拟每个阶段的耗时（秒）
         prepare_time = random.uniform(0.1, 0.5)
         run_time = random.uniform(0.5, 1.5)
         clean_time = random.uniform(0.1, 0.3)
 
-        # latency、throughput 随机分配，加入轻微噪声
-        latency = random.uniform(20, 100)  # 模拟毫秒
-        throughput = random.uniform(1000, 5000)  # 模拟 ops/sec
+        # latency、throughput
+        latency = random.uniform(20, 100)
+        throughput = random.uniform(1000, 5000)
 
-        # 打印日志方便调试
         print(f"[MockRun] Config={factors} | latency={latency:.2f} | throughput={throughput:.2f}")
 
-        # 模拟耗时（可选，不想等就注释掉）
         time.sleep(0.1)
 
         return latency, throughput, prepare_time, run_time, clean_time
